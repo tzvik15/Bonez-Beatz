@@ -78,7 +78,7 @@ $("#tom6").on("click", function() {
 //js for the dragging of buttons
 
 interact('.draggable')
-  .draggable({
+    .draggable({
     // enable inertial throwing
     inertia: true,
     
@@ -90,29 +90,30 @@ interact('.draggable')
     onmove: dragMoveListener,
     // call this function on every dragend event
     onend: function (event) {
-      var textEl = event.target.querySelector('p')
+        var textEl = event.target.querySelector('p')
 
-      textEl && (textEl.textContent =
+        textEl && (textEl.textContent =
         'moved a distance of ' +
-        (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
-                   Math.pow(event.pageY - event.y0, 2) | 0))
-          .toFixed(2) + 'px')
+        (Math.sqrt(Math.pow(event.pageX - event.x0, 2) + Math.pow(event.pageY - event.y0, 2) | 0)).toFixed(2) + 'px')
     }
-  })
-  function dragMoveListener (event) {
+})
+    function dragMoveListener (event) {
     var target = event.target
     // keep the dragged position in the data-x/data-y attributes
     var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
     var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-  
+
     // translate the element
     target.style.webkitTransform =
-      target.style.transform =
+        target.style.transform =
         'translate(' + x + 'px, ' + y + 'px)'
-  
+
     // update the posiion attributes
     target.setAttribute('data-x', x)
     target.setAttribute('data-y', y)
-  }
-  
+    }
 
+// Dropdown function
+$('.dropdown').on('click', function() {
+    $(this).toggleClass('is-active');
+})
