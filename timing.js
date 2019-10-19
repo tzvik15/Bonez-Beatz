@@ -4,8 +4,8 @@ var timer = 0;     //time intiger placeholder
 var whichKey = "";  //value of last key pressed
 var recording = false;
 var keyDown = false;
-var intervalTime = 10;     //keeps record and playback times in sync
-var timerVar = 600       //timer length (unit subject to change)
+var intervalTime = 1;     //keeps record and playback times in sync
+var timerVar = 1000;       //timer length (unit subject to change)
 var newSound = true;
 
 
@@ -13,6 +13,7 @@ var newSound = true;
 
 function record() {
     recording = true;
+    x = [];
     t = setInterval(function(){
         if (keyDown === true && whichKey === 81){
             x.push("q");}
@@ -34,7 +35,7 @@ function record() {
         x.push("c");}
         if (keyDown === false){
         x.push("0");}
-        console.log(x);
+        // console.log(x);
         timer++;
         if(timer >= timerVar){    //sets recording time limit
             stopTimers();
@@ -43,43 +44,45 @@ function record() {
         }}, intervalTime); 
   }
 
-    function stopTimers(){
-        clearInterval(t);
-    }
-
-
-   function playback() {
-     t = setInterval(function(){
-         var stopSound = false;
-         if (x[y] == "q"){
-            audio1.play();}
-
-         if(x[y+1] !== x[y]){
-             stopSound = true;
-         }
-
-         if(x[y+1] == 0){
-            stopSound = false;
-        }
-
+  
+  
+  function playback() {
+      t = setInterval(function(){
+          var stopSound = false;
+          if (x[y] == "q"){
+              audio1.play();}
+              
+              if(x[y+1] !== x[y]){
+                  stopSound = true;
+                }
+                
+                if(x[y+1] == 0){
+                    stopSound = false;
+                }
+                
+                
+                if(stopSound === true){
+                    audio1.pause();
+                    audio1.currentTime = 0.0}
+                    
+                    console.log(x[y]);
+                    y++;
+                    timer++;
+                    if(timer >= timerVar){
+                        stopTimers();
+                        timer = 0;
+                        y = 0;
+                    }
+                }, intervalTime);
+            }
             
-        if(stopSound === true){
-            audio1.pause();
-            audio1.currentTime = 0.0}
-
-         console.log(x[y]);
-         y++;
-         timer++;
-         if(timer >= timerVar){
-            stopTimers();
-            timer = 0;
-        }
-     }, intervalTime);
-   }
-
-
+            function stopTimers(){
+                clearInterval(t);
+            }
+            
 $(document).on("keydown", function( event ) {
-    $("#bone").attr("src", "assets/images/bone-animate.gif");
+    if(recording === true){
+    $("#bone").attr("src", "assets/images/bone-animate.gif");}
     whichKey = event.which;
     keyDown = true;
 
