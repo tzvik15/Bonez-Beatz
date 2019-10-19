@@ -188,3 +188,19 @@ interact('#c').dropzone({
 $('.dropdown').on('click', function() {
     $(this).toggleClass('is-active');
 })
+
+
+// AJAX call for artist facts
+$('#lyric-search').on('click', function() {
+    var song = $('#song').val();
+    var artist = $('#artist').val()
+    var queryURL = "https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?format=jsonp&callback=callback&q_track="+ song +"&q_artist="+artist+"&apikey=9bc85e11d0b8beb2e1986fadfa254ba4";
+
+    
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+    })
+})

@@ -11,6 +11,61 @@
 input {
     border: solid .5px black;
 }
+#header {
+    width: 100%;
+    height: 4em;
+    text-align: center;
+} #header h1 {
+        font-size: 28pt;
+        font-weight: 500;
+    }
+
+#main-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 5% 0% 5% 0%;
+}
+    #buttons {
+        width: 50%;
+        margin-left: 5%;
+    }
+        #buttons .button {
+            height: 75px;
+            width: 75px;
+            margin: 1% 1% 1% 1%;
+        }
+
+    .dropdown {
+        margin-right: 5%;
+    }
+        .is-active {
+            height: 2em;
+        }
+
+#search-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+} #search-container h4 {
+    font-size: 14pt;
+    font-weight: bold;
+}
+    .search-input {
+        width: 75%;
+        height: 1.8em;
+        border
+    } .submit-btn {
+        border: 1px solid grey;
+        border-radius: 3px;
+        padding: 1px 1px 1px 1px;
+        margin-left: 3px;
+        height: 1.9em;
+    }
+
+#recording-container {
+    display: flex;
+
+}
 
 
 .dropzone {

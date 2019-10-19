@@ -12,22 +12,34 @@
 </head>
 <body>
     <!-- Main Header -->
-    <header>
+    <header id="header">
         <h1>Music Making Master</h1>
     </header>
     <!-- Main container for MIDI pad and audio samples -->
     <div id="main-container">
         <!-- Container for MIDI pad buttons -->
         <div id='buttons'> 
-            <button class="dropzone" id="q">Sound Q</button>
-            <button class="dropzone" id="w">Sound W</button>
-            <button class="dropzone" id="e">Sound E</button> <br>
-            <button class="dropzone" id="a">Sound A</button>
-            <button class="dropzone" id="s">Sound S</button>
-            <button class="dropzone" id="d">Sound D</button> <br>
-            <button class="dropzone" id="z">Sound Z</button>
-            <button class="dropzone" id="x">Sound X</button>
-            <button class="dropzone" id="c">Sound C</button>
+
+            <button class="button">Q</button>
+            <button class="button">W</button>
+            <button class="button">E</button> <br>
+            <button class="button">A</button>
+            <button class="button">S</button>
+            <button class="button">D</button> <br>
+            <button class="button">Z</button>
+            <button class="button">X</button>
+            <button class="button">C</button>
+
+            <button class="dropzone button" id="q">Q</button>
+            <button class="dropzone button" id="w">W</button>
+            <button class="dropzone button" id="e">E</button> <br>
+            <button class="dropzone button" id="a">A</button>
+            <button class="dropzone button" id="s">S</button>
+            <button class="dropzone button" id="d">D</button> <br>
+            <button class="dropzone button" id="z">Z</button>
+            <button class="dropzone button" id="x">X</button>
+            <button class="dropzone button" id="c">C</button>
+
         </div>
         <!-- Container for different samples -->
         <div class="dropdown">
@@ -64,33 +76,33 @@
         
     </div>
 
-        
-        
-        
-    </div>
+
     <!-- Search for info about an artist -->
-    <div id="artist-search">
-        <h4>Search for facts about your favorite artist!</h4>
-        <input type="text"><button type="submit">Submit</button>
-    </div>
-    
-    <!-- Search for lyrics/lyrics meaning -->
-    <div id="lyrics-search">
-        <h4>Search for the lyrics/meaning for your favorite song!</h4>
-        <input type="text"><button type="submit">Submit</button>
-
-
-    </div>
-
-    <img width="400px" class="bone" src="assets/images/bone-still.jpg">
-
-
-    <div id="control-tray">
-        <img class="control-btn" id="record" src="assets/images/icons/record.png">
-        <img class="control-btn" id="playback" src="assets/images/icons/play.png">
-        <img class="control-btn" id="stop" src="assets/images/icons/stop.png">
+    <div id="search-container">
+        <div id="artist-search">
+            <h4>Search for facts about your favorite artist!</h4>
+            <input class="search-input" type="text"><button class="submit-btn" type="submit">Submit</button>
+        </div>
+        
+        <!-- Search for lyrics/lyrics meaning -->
+        <div id="lyrics-search">
+            <h4>Search for the lyrics/meaning for your favorite song!</h4>
+            <input id="artist" class="search-input" type="text" placeholder="Artist">
+            <input id="song" class="search-input" type="text" placeholder="Song">
+            <button id="lyric-search" class="submit-btn"  type="submit">Submit</button>
+        </div>
     </div>
 
+    <div id="recording-container">
+        <img width="400px" class="bone" src="assets/images/bone-still.jpg">
+
+
+        <div id="control-tray">
+            <img class="control-btn" id="record" src="assets/images/icons/record.png">
+            <img class="control-btn" id="playback" src="assets/images/icons/play.png">
+            <img class="control-btn" id="stop" src="assets/images/icons/stop.png">
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
