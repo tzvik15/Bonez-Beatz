@@ -1,3 +1,4 @@
+var imageState = "";
 // global variables
 
 //audio files
