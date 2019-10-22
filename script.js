@@ -68,6 +68,7 @@ $("#lyric-search").on("click", function() {
     "&q_artist=" +
     artist +
     '&apikey=9bc85e11d0b8beb2e1986fadfa254ba4';
+    // var Success = false;
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -78,13 +79,21 @@ $("#lyric-search").on("click", function() {
       dataType: "jsonp",
       jsonpCallback: 'jsonp_callback',
       contentType: 'application/json'
-  }).then(function (response) {
-      console.log(response)
-      // var lyrics =  response.message.body.lyrics
-      // console.log(lyrics)
-      $('#lyrics-display').text(response.message.body.lyrics.lyrics_body)
-  })
-});
+    }).then(function (response) {
+        console.log(response)
+        if (response.message.header.status_code === 404) {
+          $('#modal').css('display', 'block')
+        } else {
+          var lyrics =  response.message.body.lyrics.lyrics_body
+          $('#lyrics-display').text(lyrics);
+        }
+      })   
+    });
+    $('.close-btn').on('click', function() {
+      $('#modal').css('display','none');
+      $('.search-input').val('')
+    })
+
 // SECOND AJAX CALL 
 $('#kanye-btn').on('click', function() {
   $.ajax({
@@ -175,7 +184,9 @@ $(document).on("keydown", function(e) {
 });
 
 
-
-$('')
+// Reset button
+$('#reset-btn').on('click', function () {
+  location.reload()
+})
     
 
