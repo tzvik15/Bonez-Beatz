@@ -76,6 +76,7 @@ function playback() {
         for (var i = 0; i < audioArray.length; i++){
       audioArray[i].pause();
       audioArray[i].currentTime = 0.0;}}
+      
     y++;
     timer++;
     if (timer >= timerVar) {
@@ -130,3 +131,61 @@ $("#stop").on("click", function(){
     timer = 0;
     alert("stop = true");
 })
+
+
+$(document).on("keydown", function() {
+  testFun(path);
+  if (whichKey === 81 && keyDown === true) {
+      parsed = Number.parseInt(path);
+      testArr[parsed].play();}else{
+        testArr[parsed].pause();
+        testArr[parsed].currentTime = 0.0;
+      }
+    if (whichKey === 87 && keyDown === true) {
+      parsed = Number.parseInt(path);
+      testArr[parsed].play();}else{
+          testArr[parsed].pause();
+          testArr[parsed].currentTime = 0.0;
+      }
+      if (whichKey === 69 && keyDown === true) {
+          parsed = Number.parseInt(path);
+          testArr[parsed].play();}else{
+              testArr[parsed].pause();
+              testArr[parsed].currentTime = 0.0;
+          }
+      if (whichKey === 65 && keyDown === true) {
+          parsed = Number.parseInt(path);
+          testArr[parsed].play();}else{
+              testArr[parsed].pause();
+              testArr[parsed].currentTime = 0.0;
+          }
+      if (whichKey === 83 && keyDown === true) {
+          parsed = Number.parseInt(path);
+          testArr[parsed].play();}else{
+              testArr[parsed].pause();
+              testArr[parsed].currentTime = 0.0;
+          }
+      if (whichKey === 68 && keyDown === true) {
+          parsed = Number.parseInt(path);
+          testArr[parsed].play();}else{
+              testArr[parsed].pause();
+              testArr[parsed].currentTime = 0.0;
+          }
+      if (whichKey === 90 && keyDown === true) {
+          parsed = Number.parseInt(path);
+          testArr[parsed].play();}else{
+              testArr[parsed].pause();
+              testArr[parsed].currentTime = 0.0;
+          }
+      if (whichKey === 88 && keyDown === true) {
+          parsed = Number.parseInt(path);
+          testArr[parsed].play();}else{
+              testArr[parsed].pause();
+              testArr[parsed].currentTime = 0.0;
+          }
+      if (whichKey === 67 && keyDown === true) {
+          parsed = Number.parseInt(path);
+          testArr[parsed].play();}else{
+              testArr[parsed].pause();
+              testArr[parsed].currentTime = 0.0;
+          }})
