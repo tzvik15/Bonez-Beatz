@@ -10,10 +10,11 @@ var newSound = true;
 var stop = false;
 
 function record() {
+  $(".bone").attr("src", "assets/images/skeleton-animate.gif");
   recording = true;
   x = [];
   t = setInterval(function() {      //reads keypresses and pushes value to array
-    
+
     if (keyDown === true && whichKey === 81) {
       x.push("q");}
     if (keyDown === true && whichKey === 87) {
@@ -89,6 +90,8 @@ function playback() {
 
 function stopTimers() {
   clearInterval(t);
+  $(".bone").attr("src", "assets/images/skeleton-still.jpg");
+
 }
 
 $(document).on("keydown", function(event) {
@@ -110,7 +113,7 @@ $("#record").on("click", function() {
   if (recording === false) {
     record();
   } else {
-    alert("recording in progress");
+    // alert("recording in progress");
   }
 });
 
@@ -130,6 +133,7 @@ $("#stop").on("click", function(){
     recording = false;
     timer = 0;
     alert("stop = true");
+    
 })
 
 
