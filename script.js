@@ -52,14 +52,53 @@ $('#lyric-search').on('click', function() {
     '&q_artist=' +
     artist +
     '&apikey=9bc85e11d0b8beb2e1986fadfa254ba4';
-
-  $.ajax({
-    url: queryURL,
-    method: 'GET'
-  }).then(function(response) {
-    console.log(response);
-  });
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+      data: {
+          format: "jsonp",
+          callback: "jsonp_callback"
+      },
+      dataType: "jsonp",
+      jsonpCallback: 'jsonp_callback',
+      contentType: 'application/json'
+  }).then(function (response) {
+      console.log(response)
+      // var lyrics =  response.message.body.lyrics
+      // console.log(lyrics)
+      $('#lyrics-display').text(response.message.body.lyrics.lyrics_body)
+  })
 });
+// SECOND AJAX CALL 
+$('#kanye-btn').on('click', function() {
+  $.ajax({
+    url: 'https://api.kanye.rest?format=text',
+    method: 'GET'
+  }).then(function (response) {
+    console.log(response)
+    $('#kanye-quote').text(response)
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function allowDrop(ev) {
   console.log('TCL: allowDrop -> ev', ev.target.id);
@@ -109,22 +148,5 @@ $(document).on('keydown', function(e) {
   }
 });
 
+$('')
     
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-        data: {
-            format: "jsonp",
-            callback: "jsonp_callback"
-        },
-        dataType: "jsonp",
-        jsonpCallback: 'jsonp_callback',
-        contentType: 'application/json'
-    }).then(function (response) {
-        console.log(response)
-        // var lyrics =  response.message.body.lyrics
-        // console.log(lyrics)
-        $('#lyrics-display').text(response.message.body.lyrics.lyrics_body)
-    })
-})
-
