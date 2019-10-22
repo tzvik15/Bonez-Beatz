@@ -93,7 +93,7 @@ function stopTimers() {
 
 $(document).on("keydown", function(event) {
   if (recording === true) {
-    $(".bone").attr("src", "assets/images/bone-animate.gif");
+    $(".bone").attr("src", "assets/images/skeleton-animate.gif");
   }
   whichKey = event.which;
   keyDown = true;
@@ -102,7 +102,7 @@ $(document).on("keydown", function(event) {
 $(document).on("keyup", function(event) {
   whichKey = event.which;
   keyDown = false;
-  $(".bone").attr("src", "assets/images/bone-still.jpg");
+  $(".bone").attr("src", "assets/images/skeleton-still.jpg");
 });
 
 $("#record").on("click", function() {

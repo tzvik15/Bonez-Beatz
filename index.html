@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <title>Document</title>
 
 </head>
@@ -33,7 +34,7 @@
         <div class="dropdown">
             <div class="dropdown-trigger">
                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span>Dropdown button</span>
+                    Dropdown button
                     <span class="icon is-small">
                     <i class="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
@@ -75,22 +76,26 @@
         <!-- Search for lyrics/lyrics meaning -->
         <div id="lyrics-search">
             <h4>Search for the lyrics/meaning for your favorite song!</h4>
-            <input id="artist" class="search-input" type="text" placeholder="Artist">
-            <input id="song" class="search-input" type="text" placeholder="Song">
-            <button id="lyric-search" class="submit-btn"  type="submit">Submit</button>
+            <input id="artist" class="search-input" type="text" placeholder=" Artist">
+            <input id="song" class="search-input" type="text" placeholder=" Song">
+            <button id="lyric-search" class="submit-btn"  type="submit">Submit</button><br>
+            <p id="lyrics-display"></p>
         </div>
     </div>
 
+
+    <!-- Recording feature -->
     <div id="recording-container">
-        <img width="400px" class="bone" src="assets/images/bone-still.jpg">
-
-
         <div id="control-tray">
             <img class="control-btn" id="record" src="assets/images/icons/record.png">
             <img class="control-btn" id="playback" src="assets/images/icons/play.png">
             <img class="control-btn" id="stop" src="assets/images/icons/stop.png">
         </div>
     </div>
+    <div id="skel-img">
+        <img width="200px" class="bone" src="assets/images/skeleton-still.jpg">
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
