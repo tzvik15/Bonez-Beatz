@@ -29,6 +29,7 @@
             <button class="dropzone button" id="z" ondrop="drop(event)" ondragover="allowDrop(event)">Z</button>
             <button class="dropzone button" id="x" ondrop="drop(event)" ondragover="allowDrop(event)">X</button>
             <button class="dropzone button" id="c" ondrop="drop(event)" ondragover="allowDrop(event)">C</button>
+            <button class="button" id="reset-btn">Reset MIDI Pad</button>
         </div>
         <!-- Container for different samples -->
         <div class="dropdown">
@@ -69,8 +70,9 @@
     <!-- Search for info about an artist -->
     <div id="search-container">
         <div id="artist-search">
-            <h4>Search for facts about your favorite artist!</h4>
-            <input class="search-input" type="text"><button class="submit-btn" type="submit">Submit</button>
+            <!-- <h4>Press the button for a random Kanye West quote</h4> -->
+            <button id="kanye-btn" class="submit-btn" type="submit">Click Me for a Random Kanye West Quote!</button>
+            <p id="kanye-quote"></p>
         </div>
         
         <!-- Search for lyrics/lyrics meaning -->
