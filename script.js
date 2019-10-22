@@ -24,6 +24,7 @@ var tom6 = new Audio('assets/audioSamples/tom6.mp3');
 var testArr = [kick1, kick2, snare1, snare2, snare3, symbol1, symbol2, symbol3, symbol4, symbol5, tock, tom1, tom2, tom3, tom4, tom5, tom6];
 
 var testFun = function(path) {
+
   var parsed = Number.parseInt(path);
 
   testArr[parsed].play();
@@ -71,6 +72,7 @@ function drag(ev) {
   path = ev.target.id;
 }
 
+
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData('text');
@@ -106,3 +108,23 @@ $(document).on('keydown', function(e) {
       break;
   }
 });
+
+    
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+        data: {
+            format: "jsonp",
+            callback: "jsonp_callback"
+        },
+        dataType: "jsonp",
+        jsonpCallback: 'jsonp_callback',
+        contentType: 'application/json'
+    }).then(function (response) {
+        console.log(response)
+        // var lyrics =  response.message.body.lyrics
+        // console.log(lyrics)
+        $('#lyrics-display').text(response.message.body.lyrics.lyrics_body)
+    })
+})
+
