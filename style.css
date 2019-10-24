@@ -199,3 +199,15 @@
     #skel-img img {
         border-radius: 5px;
     }
+
+#copyright{
+    text-align: center;
+    
+}
+.speakBtn{
+    padding:5px;
+    background: chartreuse;
+    color:rgb(196, 14, 14);
+    font-weight:bolder;
+    border-radius:4px;
+}

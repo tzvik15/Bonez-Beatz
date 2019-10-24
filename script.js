@@ -59,6 +59,7 @@ $(".dropdown").on("click", function() {
 });
 
 // AJAX call for artist facts
+var lyrics = "";
 $("#lyric-search").on("click", function() {
   var song = $("#song").val();
   var artist = $("#artist").val();
@@ -80,11 +81,10 @@ $("#lyric-search").on("click", function() {
       jsonpCallback: 'jsonp_callback',
       contentType: 'application/json'
     }).then(function (response) {
-        console.log(response)
         if (response.message.header.status_code === 404) {
           $('#modal').css('display', 'block')
         } else {
-          var lyrics =  response.message.body.lyrics.lyrics_body
+          lyrics =  response.message.body.lyrics.lyrics_body
           $('#lyrics-display').text(lyrics);
         }
       })   
@@ -95,14 +95,15 @@ $("#lyric-search").on("click", function() {
     })
 
 // SECOND AJAX CALL 
-$('#kanye-btn').on('click', function() {
-  $.ajax({
-    url: 'https://api.kanye.rest?format=text',
-    method: 'GET'
-  }).then(function (response) {
-    console.log(response)
-    $('#kanye-quote').text(response)
-  })
+var kQuote = "";
+$("#kanye-btn").on("click", function() {
+ $.ajax({
+   url: "https://api.kanye.rest?format=text",
+   method: "GET"
+ }).then(function (response) {
+   kQuote = response;
+   $("#kanye-quote").text(kQuote)
+ })
 })
 
 function allowDrop(ev) {
@@ -189,4 +190,12 @@ $('#reset-btn').on('click', function () {
   location.reload()
 })
     
+const artyom = new Artyom();
 
+$("#speakKanye").on("click", function() {
+  artyom.say(kQuote);
+})
+
+$("#lyricsBtn").on("click", function() {
+  artyom.say(lyrics);
+})

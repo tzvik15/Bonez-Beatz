@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
-    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
     <title>Document</title>
 
 </head>
@@ -79,6 +79,7 @@
         <div id="artist-search">
             <!-- <h4>Press the button for a random Kanye West quote</h4> -->
             <button id="kanye-btn" class="submit-btn" type="submit">Click Me for a Random Kanye West Quote!</button>
+            <button class="speakBtn" id="speakKanye">Speak the Kanye!</button>
             <p id="kanye-quote"></p>
         </div>
         
@@ -89,6 +90,7 @@
             <input id="song" class="search-input" type="text" placeholder=" Song">
             <button id="lyric-search" class="submit-btn"  type="submit">Search</button><br>
             <p id="lyrics-display"></p>
+            <button class="speakBtn" id="lyricsBtn">Read out the lyrics</button>
         </div>
     </div>
 
@@ -104,11 +106,11 @@
     <div id="skel-img">
         <img width="200px" class="bone" src="assets/images/skeleton-still.jpg">
     </div>
+    <footer><h6 id="copyright">Powered by Magic, and copyright Skeleton-Crew.</footer>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- <script src="timing.js"></script> -->
+    <script src="artyom.window.min.js"></script>
+    <script src="timing.js"></script>
     <script src="script.js"></script>
 
 </body>
