@@ -42,7 +42,7 @@ var testArr = [
 ];
 
 var testFun = function(letter) {
-  var parsed = Number.parseInt(letter);
+  parsed = Number.parseInt(letter);
   testArr[parsed].play();
 };
 
