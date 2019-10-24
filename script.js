@@ -57,6 +57,7 @@ for (let i = 0; i < testArr.length; i++) {
 $(".dropdown").on("click", function() {
   $(this).toggleClass("is-active");
 });
+
 var lyrics = "";
 // AJAX call for lyrics search
 $("#lyric-search").on("click", function() {
@@ -80,7 +81,6 @@ $("#lyric-search").on("click", function() {
       jsonpCallback: 'jsonp_callback',
       contentType: 'application/json'
     }).then(function (response) {
-        console.log(response)
         if (response.message.header.status_code === 404) {
           $('#modal').css('display', 'block')
         } else {
@@ -94,6 +94,7 @@ $("#lyric-search").on("click", function() {
       $('.search-input').val('')
     })
 
+
 // SECOND AJAX CALL FOR KANYE QUOTE
 var kQuote = "";
 $('#kanye-btn').on('click', function() {
@@ -104,6 +105,7 @@ $('#kanye-btn').on('click', function() {
     kQuote = response;
     $('#kanye-quote').text(kQuote)
   })
+
 })
 
 function allowDrop(ev) {
@@ -189,3 +191,15 @@ $(document).on("keydown", function(e) {
 $('#reset-btn').on('click', function () {
   location.reload()
 })
+
+    
+const artyom = new Artyom();
+
+$("#speakKanye").on("click", function() {
+  artyom.say(kQuote);
+})
+
+$("#lyricsBtn").on("click", function() {
+  artyom.say(lyrics);
+})
+
