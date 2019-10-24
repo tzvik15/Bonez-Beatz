@@ -29,7 +29,7 @@
             <button class="dropzone button" id="z" ondrop="drop(event)" ondragover="allowDrop(event)">Z</button>
             <button class="dropzone button" id="x" ondrop="drop(event)" ondragover="allowDrop(event)">X</button>
             <button class="dropzone button" id="c" ondrop="drop(event)" ondragover="allowDrop(event)">C</button>
-            <button class="button" id="reset-btn">Reset MIDI Pad</button>
+            <button id="reset-btn">Reset MIDI Pad</button>
         </div>
         <!-- Container for different samples -->
         <div class="dropdown">
@@ -69,6 +69,13 @@
 
     <!-- Search for info about an artist -->
     <div id="search-container">
+        <div id="modal">
+            <div id="modal-content">
+                <span class="close-btn">&times;</span><br>
+                <p>Sorry, we could not find the song you're looking for.<br>
+                    Please double check your input.</p>
+            </div>
+        </div>
         <div id="artist-search">
             <!-- <h4>Press the button for a random Kanye West quote</h4> -->
             <button id="kanye-btn" class="submit-btn" type="submit">Click Me for a Random Kanye West Quote!</button>
@@ -77,10 +84,10 @@
         
         <!-- Search for lyrics/lyrics meaning -->
         <div id="lyrics-search">
-            <h4>Search for the lyrics/meaning for your favorite song!</h4>
+            <h4>Find the lyrics for your favorite song!</h4>
             <input id="artist" class="search-input" type="text" placeholder=" Artist">
             <input id="song" class="search-input" type="text" placeholder=" Song">
-            <button id="lyric-search" class="submit-btn"  type="submit">Submit</button><br>
+            <button id="lyric-search" class="submit-btn"  type="submit">Search</button><br>
             <p id="lyrics-display"></p>
         </div>
     </div>
