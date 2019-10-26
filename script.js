@@ -65,7 +65,7 @@ var testFun = function(letter) {
 for (let i = 0; i < testArr.length; i++) {
   $("#" + i).on("click", function(e) {
     e.preventDefault();
-    testFun(i);
+    testArr[i].play();
   });
 }
 
