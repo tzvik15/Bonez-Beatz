@@ -1,7 +1,23 @@
 // global variables
+var firstTime = localStorage.getItem('first');
 var imageState = "";
 var path = "";
 var tempText = "";
+var qKey = -1;
+var wKey = -1;
+var eKey = -1;
+var aKey = -1;
+var sKey = -1;
+var dKey = -1;
+var zKey = -1;
+var xKey = -1;
+var cKey = -1;
+localStorage.setItem('first', "nope")
+if(firstTime == null){
+  $("#modal-text").html("<br>Welcome to Bones Beats!<br><br>To get started, click 'Sound Library', and drag a selection over to one of the keys on the left to assign a sound to a key. Press record to capture a 20 second clip, play to start playback of the captured clip, and stop to end the recording process.");
+  modal.style.display = "block";
+  };
+
 //audio files
 var kick1 = new Audio("assets/audioSamples/kick1.mp3");
 var kick2 = new Audio("assets/audioSamples/kick2.mp3");
@@ -42,8 +58,8 @@ var testArr = [
 ];
 
 var testFun = function(letter) {
-  parsed = Number.parseInt(letter);
-  testArr[parsed].play();
+  var parsed = Number.parseInt(letter);
+  // testArr[parsed].play();     this line is now determined in the dropdown function, and is assigned to the keydown listener on the timing sheet
 };
 
 for (let i = 0; i < testArr.length; i++) {
@@ -82,6 +98,7 @@ $("#lyric-search").on("click", function() {
       contentType: 'application/json'
     }).then(function (response) {
         if (response.message.header.status_code === 404) {
+          $("#modal-text").html("<br><p>Sorry, we could not find the song you're looking for.<br>Please double check your input.</p>");
           $('#modal').css('display', 'block')
         } else {
           lyrics =  response.message.body.lyrics.lyrics_body
@@ -124,6 +141,24 @@ function drop(ev) {
   var testVar = document.getElementById(ev.target.id);
   testVar.setAttribute("style", "background:red");
   $("#" + data).css({  height: "100%", border: "none", background: "red"});
+  if(testVar.id == "q"){
+    qKey = parseInt(data);}
+  if(testVar.id == "w"){
+    wKey = parseInt(data);}
+  if(testVar.id == "e"){
+    eKey = parseInt(data);}
+  if(testVar.id == "a"){
+    aKey = parseInt(data);}
+  if(testVar.id == "s"){
+    sKey = parseInt(data);}
+  if(testVar.id == "d"){
+    dKey = parseInt(data);}
+  if(testVar.id == "z"){
+    zKey = parseInt(data);}
+  if(testVar.id == "x"){
+    xKey = parseInt(data);}
+  if(testVar.id == "c"){
+    cKey = parseInt(data);}
 }
 
 $(document).on("keydown", function(e) {
@@ -202,4 +237,3 @@ $("#speakKanye").on("click", function() {
 $("#lyricsBtn").on("click", function() {
   artyom.say(lyrics);
 })
-
