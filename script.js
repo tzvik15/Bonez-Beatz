@@ -2,6 +2,16 @@
 var imageState = "";
 var path = "";
 var tempText = "";
+var qKey = 0
+var wKey = 0;
+var eKey = 0;
+var aKey = 0;
+var sKey = 0;
+var dKey = 0;
+var zKey = 0;
+var xKey = 0;
+var cKey = 0;
+
 //audio files
 var kick1 = new Audio("assets/audioSamples/kick1.mp3");
 var kick2 = new Audio("assets/audioSamples/kick2.mp3");
@@ -42,8 +52,8 @@ var testArr = [
 ];
 
 var testFun = function(letter) {
-  parsed = Number.parseInt(letter);
-  testArr[parsed].play();
+  var parsed = Number.parseInt(letter);
+  // testArr[parsed].play();     this line is now determined in the dropdown function, and is assigned to the keydown listener on the timing sheet
 };
 
 for (let i = 0; i < testArr.length; i++) {
@@ -124,6 +134,24 @@ function drop(ev) {
   var testVar = document.getElementById(ev.target.id);
   testVar.setAttribute("style", "background:red");
   $("#" + data).css({  height: "100%", border: "none", background: "red"});
+  if(testVar.id == "q"){
+    qKey = parseInt(data);}
+  if(testVar.id == "w"){
+    wKey = parseInt(data);}
+  if(testVar.id == "e"){
+    eKey = parseInt(data);}
+  if(testVar.id == "a"){
+    aKey = parseInt(data);}
+  if(testVar.id == "s"){
+    sKey = parseInt(data);}
+  if(testVar.id == "d"){
+    dKey = parseInt(data);}
+  if(testVar.id == "z"){
+    zKey = parseInt(data);}
+  if(testVar.id == "x"){
+    xKey = parseInt(data);}
+  if(testVar.id == "c"){
+    cKey = parseInt(data);}
 }
 
 $(document).on("keydown", function(e) {
