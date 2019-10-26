@@ -1,16 +1,22 @@
 // global variables
+var firstTime = localStorage.getItem('first');
 var imageState = "";
 var path = "";
 var tempText = "";
-var qKey = 0
-var wKey = 0;
-var eKey = 0;
-var aKey = 0;
-var sKey = 0;
-var dKey = 0;
-var zKey = 0;
-var xKey = 0;
-var cKey = 0;
+var qKey = -1;
+var wKey = -1;
+var eKey = -1;
+var aKey = -1;
+var sKey = -1;
+var dKey = -1;
+var zKey = -1;
+var xKey = -1;
+var cKey = -1;
+localStorage.setItem('first', "nope")
+if(firstTime == null){
+  $("#modal-text").html("<br>Welcome to Bones Beats!<br><br>To get started, click 'Sound Library', and drag a selection over to one of the keys on the left to assign a sound to a key. Press record to capture a 20 second clip, play to start playback of the captured clip, and stop to end the recording process.");
+  modal.style.display = "block";
+  };
 
 //audio files
 var kick1 = new Audio("assets/audioSamples/kick1.mp3");
@@ -92,6 +98,7 @@ $("#lyric-search").on("click", function() {
       contentType: 'application/json'
     }).then(function (response) {
         if (response.message.header.status_code === 404) {
+          $("#modal-text").html("<br><p>Sorry, we could not find the song you're looking for.<br>Please double check your input.</p>");
           $('#modal').css('display', 'block')
         } else {
           lyrics =  response.message.body.lyrics.lyrics_body
@@ -230,4 +237,3 @@ $("#speakKanye").on("click", function() {
 $("#lyricsBtn").on("click", function() {
   artyom.say(lyrics);
 })
-
