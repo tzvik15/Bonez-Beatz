@@ -17,4 +17,4 @@ This Page is built using HTML, CSS, JavaScript, and jQuery.
 CSS frameworks used: Bulma.
 API's used: Musixmatch, Kanye.rest, Artyom.js.
 
-
+#### Deployed URL: https://tzvik15.github.io/Bonez-Beatz/
