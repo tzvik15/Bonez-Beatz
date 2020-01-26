@@ -1,5 +1,7 @@
 # Bone'z Beatz
 
+![](bonez.jpg)
+
 Our app is a cosumizable soundboard. The users can select sounds from an existing library, and tie them to specific keyboard buttons. They make those connections by dragging the desired sound button on to the desired key. Once a sound has been assosiated with a key, the key representation button changes color to indicate that a sound has been assosiated with that button. The name of the sound selected is also visually apperant. 
 
 Once sounds have been associated with keys, pressing the key on the keyboard plays the associated sound.
